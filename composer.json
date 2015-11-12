@@ -1,0 +1,30 @@
+{
+  "name": "todstoychev/table-sorter",
+  "type": "library",
+  "description": "Table sorter module for Laravel 5",
+  "keywords": [
+    "table",
+    "sort",
+    "column"
+  ],
+  "homepage": "https://github.com/todstoychev/table-sorter",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Todor Todorov",
+      "email": "todstoychev@gmail.com"
+    }
+  ],
+  "support": {
+    "email": "todstoychev@gmail.com"
+  },
+  "require": {
+    "php": ">=5.4",
+    "laravel/framework": "5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Todstoychev\\TableSorter\\": "src/"
+    }
+  }
+}
