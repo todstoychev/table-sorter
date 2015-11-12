@@ -2,6 +2,12 @@
 
 namespace Todstoychev\TableSorter;
 
+/**
+ * Simple table sorter.
+ *
+ * @author Todor Todorov <todstoychev@gmail.com>
+ * @package Todstoychev\TableSorter
+ */
 class TableSorter
 {
     /**
@@ -15,14 +21,18 @@ class TableSorter
      *
      * @return string
      */
-    public static function sort($action, $columnName, $param, $order = 'asc', $limit = 10) {
-        If ($order == 'asc') {
-            $order = 'desc';
-        } else {
-            $order = 'asc';
-        }
-
-        return view('vendor.todstoychev.table-sorter.sort');
+    public static function sort($action, $columnName, $param, $order = 'asc', $limit = 10)
+    {
+        return view(
+            'todstoychev.table-sorter.sort',
+            [
+                'action' => $action,
+                'columnName' => $columnName,
+                'param' => $param,
+                'order' => static::defineOrder($order),
+                'limit' => $limit,
+            ]
+        );
     }
 
     /**
@@ -36,13 +46,33 @@ class TableSorter
      *
      * @return string
      */
-    public static function sortSearch($action, $columnName, $search = null, $param = null, $order = 'asc') {
+    public static function sortSearch($action, $columnName, $search = null, $param = null, $order = 'asc')
+    {
+        return view(
+            'todstoychev.table-sorter.sort_search',
+            [
+                'action' => $action,
+                'columnName' => $columnName,
+                'search' => $search,
+                'param' => $param,
+                'order' => static::defineOrder($order)
+            ]
+        );
+    }
+
+    /**
+     * Define order direction string
+     *
+     * @param string $order
+     *
+     * @return string
+     */
+    protected static function defineOrder($order)
+    {
         If ($order == 'asc') {
-            $order = 'desc';
-        } else {
-            $order = 'asc';
+            return 'desc';
         }
 
-        return view('vendor.todstoychev.table-sorter.sort_search');
+        return 'asc';
     }
 }
