@@ -56,7 +56,7 @@ The other method provided by the module can be used to sort search results.
 
 This one works almost in the same way. The difference is that it not provides value for items per page and has search string parameter.
 
-To make this will work you will need to create somethin similar in your controller:
+To make this will work you will need to create something similar in your controller:
 
 ```php
 class MyController
